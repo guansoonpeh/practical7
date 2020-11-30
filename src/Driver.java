@@ -13,7 +13,9 @@ public class Driver {
 	public static double computeTotalCollection(PatientBill[] arr) {
 		double total = 0.0;
 		
-                //todo:: calculate total
+                for(int i = 0; i<arr.length; i++) {
+                    total += arr[i].calculateCharges();
+                }
 		
 		return total;	
 	}
@@ -26,8 +28,10 @@ public class Driver {
 		bills[3] = new OutpatientBill("Andy Lau" , 50.00);
 		
 		System.out.println("Original array: ");
-		for (int i = 0; i < bills.length; ++i)	
-			System.out.println("\n" + bills[i]);
+		for (int i = 0; i < bills.length; ++i)	{
+		    System.out.println("\n" + bills[i]);
+                    System.out.println("Total Charge : " + bills[i].calculateCharges() );
+                }
 		
 		//bills = selectionSort(bills);
 	
@@ -39,7 +43,7 @@ public class Driver {
 //			System.out.printf("Total collection: RM%.2f\n", bills[i].calculateTotalCharges());
 //		}
 //                
-		System.out.println("Total bills = RM "+computeTotalCollection(bills)	);
+		System.out.println("\nTotal Collection : RM "+computeTotalCollection(bills)	);
                 
 	}
 //	
